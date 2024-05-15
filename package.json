@@ -1,11 +1,71 @@
 {
   "name": "htb",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Htb.js — a 50-line HTML template engine that uses JavaScript syntax.",
+  "main": "./dist/cjs/cjs.js",
+  "module": "./dist/esm/htb.js",
+  "types": "./dist/cjs/htb.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fixCjsPackage": "echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
+    "fixEsmPackage": "echo '{ \"type\": \"module\" }' > dist/esm/package.json",
+    "fixup": "node --run fixCjsPackage && node --run fixEsmPackage",
+    "build": "rm -rf dist && tsc && tsc -p tsconfig-esm.json && node --run fixup",
+    "test": "node --run build && node --test dist/cjs/test.js",
+    "prepublishOnly": "node --run build"
   },
-  "author": "",
-  "license": "MIT"
+  "exports": {
+    ".": {
+      "import": "./dist/esm/htb.js",
+      "require": "./dist/cjs/cjs.js"
+    }
+  },
+  "files": [
+    "cjs.ts",
+    "htb.ts",
+    "dist/cjs/package.json",
+    "dist/cjs/htb.js",
+    "dist/cjs/htb.d.ts",
+    "dist/cjs/htb.d.ts.map",
+    "dist/cjs/cjs.js",
+    "dist/cjs/cjs.d.ts",
+    "dist/cjs/cjs.d.ts.map",
+    "dist/esm/package.json",
+    "dist/esm/htb.js",
+    "dist/esm/htb.d.ts",
+    "dist/esm/htb.d.ts.map"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noway/htb.git"
+  },
+  "keywords": [
+    "html",
+    "template",
+    "engine",
+    "json2html",
+    "web",
+    "templating",
+    "builder",
+    "templates",
+    "simple",
+    "dsl",
+    "lightweight",
+    "pug",
+    "mustache",
+    "handlebars",
+    "ejs"
+  ],
+  "homepage": "https://github.com/noway/htb#readme",
+  "bugs": {
+    "url": "https://github.com/noway/htb/issues"
+  },
+  "author": "Ilia Sidorenko <ilia.sidorenko.421@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "html-entities": "^2.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.11",
+    "typescript": "^5.4.5"
+  }
 }

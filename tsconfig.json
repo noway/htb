@@ -1,0 +1,10 @@
+
+{
+  "extends": "./tsconfig-base.json",
+  "compilerOptions": {
+      "module": "commonjs",
+      "outDir": "dist/cjs",
+      "target": "es2022"
+  },
+  "include": ["htb.ts", "test.ts", "cjs.ts"],
+}
