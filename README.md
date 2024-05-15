@@ -1,3 +1,5 @@
+![htb-js-logo](https://github.com/noway/htb/assets/2031472/05536b73-047a-40f3-9d3d-de902aea8716)
+
 # HTML Template Builder &emsp; [![latest version badge]][npm] [![license badge]][license] [![downloads badge]][npm]
 
 [latest version badge]: https://img.shields.io/npm/v/htb
