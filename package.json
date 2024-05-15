@@ -1,6 +1,6 @@
 {
   "name": "htb",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Htb.js — a 50-line HTML template engine that uses JavaScript syntax.",
   "main": "./dist/cjs/cjs.js",
   "module": "./dist/esm/htb.js",
